@@ -1,18 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import LandingPage from "./components/LandingPage.jsx";
+import AboutPage from "./components/AboutPage.jsx";
+import NavBar from "./components/NavBar.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-      <>
-        <h1 className="text-3xl font-bold underline">
-          Linklytics
-        </h1>
-      </>
+      <div>
+          <BrowserRouter>
+              <NavBar/>
+                  <Routes>
+                      <Route path="/" element={<LandingPage />} />
+                      <Route path="/about" element={<AboutPage />} />
+                  </Routes>
+              <Footer/>
+          </BrowserRouter>
+      </div>
   )
 }
 
