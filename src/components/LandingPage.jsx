@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Card from "./Card.jsx";
+import {useNavigate} from "react-router-dom";
+import {useStoreContext} from "../contextApi/ContextApi.jsx";
 
 let desc =
     "Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with Linklytics. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using Linklytics’s intuitive interface. Share URLs effortlessly across platforms.";
 
 
 const LandingPage = () => {
+    const navigate = useNavigate();
+
+    const {token} = useStoreContext;
+    console.log("Token from Landing Page " + token)
+
 
     return (
         <div className="min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4">

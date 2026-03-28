@@ -24,6 +24,9 @@ const NavBar = () => {
                    <li className="sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md">
                        <Link to={"/register"}>SignUp</Link>
                    </li>
+                   {/*<li className="sm:ml-0 -ml-1 bg-[#2a5bd7] text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md">*/}
+                   {/*    <Link to={"/login"}>Login</Link>*/}
+                   {/*</li>*/}
                </ul>
                 <button
                     onClick={() => setNavbarOpen(!navbarOpen)}

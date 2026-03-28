@@ -71,7 +71,7 @@ const RegisterPage = () => {
                        errors={errors}
                    />
                </div>
-               <button disabled={loader} type={"submit"} className={"bg-customRed font-semibold text-white bg-linear-[#3b82f6,#9333ea] w-full py-2 transition-colors duration-100 rounded-sm my-3"}>
+               <button disabled={loader} type={"submit"} className={"bg-rose-700 font-semibold text-white bg-linear-[#3b82f6,#9333ea] w-full py-2 transition-colors duration-100 rounded-sm my-3"}>
                    {loader ? "Loading..." : "Register"}
                </button>
                <p className='text-center text-sm text-slate-700 mt-6'>
