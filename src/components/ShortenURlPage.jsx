@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 const ShortenURlPage = () => {
     const {url} = useParams();
 
-    const backendUrl = "http://localhost:8080";
+    const backendUrl = "https://url-shortner-sb-lwb5.onrender.com";
 
     useEffect(() => {
         if (url){
