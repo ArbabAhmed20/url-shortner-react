@@ -11,14 +11,6 @@ import {useStoreContext} from "../contextApi/ContextApi.jsx";
 import {Hourglass} from "react-loader-spinner";
 import Graph from "./Graph.jsx";
 
-const url = "http://url.localhost:5173";
-
-const subDomain = url.replace(
-    /^https?:\/\//,
-    ""
-);
-
-
 const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
     const navigate = useNavigate();
 
@@ -34,7 +26,12 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
 
     const { token } = useStoreContext();
 
+    const url = "http://url.localhost:5173";
 
+    const subDomain = url.replace(
+        /^https?:\/\//,
+        ""
+    );
 
     const analyticsHandler = (shortURL) => {
         if (!analyticsToggle){
@@ -66,7 +63,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
 
     useEffect(() => {
         if (selectedUrl){
-            fetchMyShortUrl();
+            return fetchMyShortUrl();
         }
     }, [selectedUrl])
 
@@ -77,7 +74,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
                     <div className={`text-slate-900 pb-1 sm:pb-0   flex items-center gap-2`}>
                         <Link
                             target='_'
-                            className='text-[17px]  font-montserrat font-[600] text-linkColor'
+                            className='text-[17px]  font-montserrat font-semibold text-linkColor'
                             to={url + "/s/" + `${shortURL}`}>
                             {subDomain + "/s/" + `${shortURL}`}
                         </Link>
@@ -113,7 +110,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
                 <div className={"flex flex-1 sm:justify-end items-center gap-4"}>
                     <CopyToClipboard
                     onCopy={() => setIsCopied(true)}
-                    text={`${url}`/`${shortURL}`}
+                    text={url + "/" + shortURL}
                     >
                         <div className="flex cursor-pointer gap-1 items-center bg-[#3364F7] py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
                             <button className="cursor-pointer">{isCopied ? "Copied" : "Copy"}</button>
