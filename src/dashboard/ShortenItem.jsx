@@ -26,9 +26,9 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
 
     const { token } = useStoreContext();
 
-    const url = "http://url.localhost:5173";
+    const frontendUrl = "http://url.localhost:5173";
 
-    const subDomain = url.replace(
+    const subDomain = frontendUrl.replace(
         /^https?:\/\//,
         ""
     );
@@ -75,8 +75,8 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
                         <Link
                             target='_'
                             className='text-[17px]  font-montserrat font-semibold text-linkColor'
-                            to={url + "/s/" + `${shortURL}`}>
-                            {subDomain + "/s/" + `${shortURL}`}
+                            to={frontendUrl + "/" + `${shortURL}`}>
+                            {subDomain + "/" + `${shortURL}`}
                         </Link>
                         <FaExternalLinkAlt className="text-linkColor" />
                     </div>
@@ -110,7 +110,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
                 <div className={"flex flex-1 sm:justify-end items-center gap-4"}>
                     <CopyToClipboard
                     onCopy={() => setIsCopied(true)}
-                    text={url + "/" + shortURL}
+                    text={frontendUrl + "/" + shortURL}
                     >
                         <div className="flex cursor-pointer gap-1 items-center bg-[#3364F7] py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
                             <button className="cursor-pointer">{isCopied ? "Copied" : "Copy"}</button>
