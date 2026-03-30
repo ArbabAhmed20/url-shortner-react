@@ -35,7 +35,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 export const SubDomainRouter = () => {
     return (
         <Routes>
-            <Route path="/:url" element={<ShortenURlPage />} />
+            <Route path="/:urlshortnr" element={<ShortenURlPage />} />
         </Routes>
     )
 }
