@@ -16,7 +16,7 @@ export const getSubDomain = (location) => {
 
     const isLocalHost = locationParts.slice(-1)[0] === "localhost";
 
-    const sliceTill = isLocalHost ? -1 : -2
+    const sliceTill = isLocalHost ? -1 : -3
 
     return locationParts.slice(0, sliceTill).join("");
 }
