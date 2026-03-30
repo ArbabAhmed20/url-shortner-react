@@ -30,7 +30,7 @@ const CreateNewShorten = ({setOpen, refetch}) => {
                 },
             });
 
-            const shortenUrl = `http://url.urlshortnr/${res.shortURL}`;
+            const shortenUrl = `http://url.urlshortnr${res.shortURL}`;
             await navigator.clipboard.writeText(shortenUrl).then(() => {toast.success("Short URL copied to clipboard", {
                 position: "bottom-center",
                 className: "mb-5",
