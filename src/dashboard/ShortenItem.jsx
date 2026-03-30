@@ -26,7 +26,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
 
     const { token } = useStoreContext();
 
-    const frontendUrl = "http://url.localhost:5173";
+    const frontendUrl = "https://urlshortnr.netlify.app/";
 
     const subDomain = frontendUrl.replace(
         /^https?:\/\//,
