@@ -16,9 +16,11 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/dashboard" element={<DashboardLayout />} />
+                <Route path="/register" element={<PrivateRoute publicPage={true}><RegisterPage /></PrivateRoute>} />
+                <Route path="/login" element={<PrivateRoute publicPage={true}><Login /></PrivateRoute>} />
+                <Route path="/dashboard" element={<PrivateRoute publicPage={false}><DashboardLayout /></PrivateRoute>} />
+                <Route path="/*" element={<ErrorPage message={"Page Not Found!"} />} />
+                <Route path="/error" element={<ErrorPage />} />
             </Routes>
             <Footer/>
         </>
@@ -27,6 +29,8 @@ const AppRouter = () => {
 
 import React from 'react'
 import ShortenURlPage from "./components/ShortenURlPage.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 export const SubDomainRouter = () => {
     return (

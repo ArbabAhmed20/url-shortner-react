@@ -7,16 +7,19 @@ import ShortenPopUp from "./ShortenPopUp.jsx";
 import {FaLink} from "react-icons/fa";
 import CreateNewShorten from "./CreateNewShorten.jsx";
 import ShortenUrlList from "./ShortenUrlList.jsx";
+import {useNavigate} from "react-router-dom";
+import {Hourglass} from "react-loader-spinner";
 
 const DashboardLayout = () => {
        const {token} = useStoreContext();
        const [shortenPopUp, setShortenPopUp] = useState(false);
+       const navigate = useNavigate();
        // const refetch = false;
 
     console.log(useFetchTotalClicks(token, onError));
 
        function onError(){
-           console.log("ERROR!")
+           navigate("/error");
        }
 
     // console.log(useFetchTotalClicks(token, onError));
@@ -27,7 +30,20 @@ const DashboardLayout = () => {
     return (
         <div className={"lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]"}>
             {loader ? (
-                <p>Loading...</p>
+                <div className={"min-h-77.5 flex justify-center items-center w-full"}>
+                    <div className={"flex flex-col items-center gap-1"}>
+                        <Hourglass
+                            visible={true}
+                            height="80"
+                            width="80"
+                            ariaLabel="hourglass-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            colors={['#306cce', '#72a1ed']}
+                        />
+                        <p className='text-slate-700 font-semibold'>Please Wait...</p>
+                    </div>
+                </div>
             ) : (
             <div className={"lg:w-[90%] w-full mx-auto py-16"}>
                 <div className={"h-96 relative"}>

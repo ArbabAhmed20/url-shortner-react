@@ -1,10 +1,21 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {IoIosMenu} from "react-icons/io";
 import {RxCross2} from "react-icons/rx";
+import {useStoreContext} from "../contextApi/ContextApi.jsx";
 
 
 const NavBar = () => {
+    const navigate = useNavigate();
+
+    const {token, setToken} = useStoreContext();
+
+    const onLogOutHandler =() => {
+        setToken(null);
+        localStorage.removeItem("JWT_TOKEN");
+        navigate("/")
+    }
+
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <div className="h-16 bg-linear-[#3b82f6,#9333ea] z-50 flex items-center sticky top-0">
@@ -21,9 +32,24 @@ const NavBar = () => {
                    <li className="hover:text-[#3364F7] font-medium  transition-all duration-150">
                        <Link className={"text-white font-semibold"} to={"/about"}>About</Link>
                    </li>
-                   <li className="sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md">
-                       <Link to={"/register"}>SignUp</Link>
-                   </li>
+
+                   {token && (
+                       <li className="hover:text-[#3364F7] font-medium  transition-all duration-150">
+                           <Link className={"text-white font-semibold"} to={"/dashboard"}>Dashboard</Link>
+                       </li>
+                   )}
+
+                   {!token && (
+                       <li className="sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md">
+                           <Link to={"/login"}>Login</Link>
+                       </li>
+                   )}
+
+                   {token && (
+                       <button onClick={onLogOutHandler} className={"sm:ml-0 -ml-1 bg-rose-700 text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md"}>
+                           Logout
+                       </button>
+                   )}
                    {/*<li className="sm:ml-0 -ml-1 bg-[#2a5bd7] text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md">*/}
                    {/*    <Link to={"/login"}>Login</Link>*/}
                    {/*</li>*/}
