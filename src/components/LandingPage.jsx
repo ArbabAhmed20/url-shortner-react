@@ -18,16 +18,16 @@ const LandingPage = () => {
         <div className="min-h-[calc(100vh-64px)] lg:px-14 sm:px-8 px-4">
             <div className="lg:flex-row flex-col lg:py-5 pt-16 lg:gap-10 gap-8 flex justify-between items-center">
                 <div className={"flex-1"}>
-                   <h1 className={"font-bold text-slate-800 md:text-5xl  text-3xl md:leading-13.75 sm:leading-11.25 leading-10 lg:w-full md:w-[70%] w-full"}>
+                   <h1 className={"font-bold text-slate-800 md:text-5xl text-center  text-3xl md:leading-13.75 sm:leading-11.25 leading-10 lg:w-full md:w-[70%] w-full"}>
                        Linklytics Simplifies URL Shortning For Efficient Sharing
                    </h1>
-                    <p className={"text-slate-700 text-sm my-5"}>
+                    <p className={"text-slate-700 text-sm my-5 text-center font-semibold"}>
                         Linklytics streamlines the process of URL shortening, making sharing
                         links effortless and efficient. With its user-friendly interface,
                         Linklytics allows you to generate concise, easy-to-share URLs in
                         seconds. Simplify your sharing experience with Linklytics today.
                     </p>
-                    <div className={"flex items-center gap-3"}>
+                    <div className={" pt-25 flex items-center justify-center gap-3"}>
                         <Link to={"/login"}>
                             <button className={"bg-linear-[#3b82f6,#9333ea] w-40 text-white rounded-md py-2 cursor-pointer"}>
                                 Manage Links
@@ -40,11 +40,8 @@ const LandingPage = () => {
                         </Link>
                     </div>
                 </div>
-                    <div className={"flex-1 flex justify-center w-full"}>
-                        <img className={"sm:w-120 w-100 object-cover rounded-md"} src={"public/images/brandLogo.png"} alt={"logo"} />
-                    </div>
             </div>
-            <div className="pt-4 pb-7 grid lg:gap-7 gap-4 xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-4">
+            <div className="pt-50 pb-7 grid lg:gap-7 gap-4 xl:grid-cols-4  lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-4">
                 <Card
                     title="Simple URL Shortening"
                     desc="Experience the ease of creating short, memorable URLs in just a few clicks. Our intuitive interface and quick setup process ensure you can start shortening URLs without any hassle."
