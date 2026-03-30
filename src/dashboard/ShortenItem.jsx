@@ -63,7 +63,7 @@ const ShortenItem = ({originalURL, shortURL, clickCount, createdDate}) => {
 
     useEffect(() => {
         if (selectedUrl){
-            return fetchMyShortUrl();
+            fetchMyShortUrl();
         }
     }, [selectedUrl])
 
