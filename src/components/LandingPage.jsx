@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import Card from "./Card.jsx";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useStoreContext} from "../contextApi/ContextApi.jsx";
 
 let desc =
@@ -28,12 +28,16 @@ const LandingPage = () => {
                         seconds. Simplify your sharing experience with Linklytics today.
                     </p>
                     <div className={"flex items-center gap-3"}>
-                        <button className={"bg-linear-[#3b82f6,#9333ea] w-40 text-white rounded-md py-2"}>
-                            Manage Links
-                        </button>
-                        <button className={"border-[#3364F7] border w-40 text-[#3364F7] rounded-md py-2"}>
-                            Create Short Link
-                        </button>
+                        <Link to={"/login"}>
+                            <button className={"bg-linear-[#3b82f6,#9333ea] w-40 text-white rounded-md py-2 cursor-pointer"}>
+                                Manage Links
+                            </button>
+                        </Link>
+                        <Link to={"/login"}>
+                            <button className={"border-[#3364F7] border w-40 text-[#3364F7] rounded-md py-2 cursor-pointer"}>
+                                Create Short Link
+                            </button>
+                        </Link>
                     </div>
                 </div>
                     <div className={"flex-1 flex justify-center w-full"}>
